@@ -18,6 +18,7 @@ import { AddEditUserComponent } from './pages/user/add-edit-user/add-edit-user.c
 import { UserOverviewComponent } from './pages/user/user-overview/user-overview.component';
 import { ViewUserComponent } from './pages/user/view-user/view-user.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {FormsModule} from '@angular/forms';
         CoreModule,
         FormsModule,
         SharedModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

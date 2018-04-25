@@ -1,0 +1,6 @@
+<div class="alert-danger alert" *ngIf="errorFormControl?.touched && errorFormControl?.invalid && errorFormControl?.errors?.required">Pflichtfeld</div>
+<div class="alert-danger alert" *ngIf="errorFormControl?.touched && errorFormControl?.invalid && errorFormControl?.errors?.minlength">Mindestlänge {{errorFormControl.errors.minlength.requiredLength}} Zeichen</div>
+
+
+
+
