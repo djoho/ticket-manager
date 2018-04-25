@@ -25,6 +25,7 @@ export class AddEditUserComponent implements OnInit {
         } else {
             this.userService.save(this.user).subscribe((user) => {
                 this.boardMessageService.addMessage('Benutzer ' + this.user.firstname + ' ' + this.user.lastname + ' wurde erfolgreich erstellt');
+                this.user = user;
             });
         }
     }

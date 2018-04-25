@@ -1,46 +1,63 @@
-<div class="row">
-    <div class="col-lg-3">
-    </div>
-    <div class="col-lg-6">
-        <!--{{user | json}}-->
-        <form #addEditUserForm="ngForm">
-            <div class="form-group">
-                <label for="">Vorname</label>
-                <input type="text" name="firstname" required class="form-control" [(ngModel)]="user.firstname" placeholder="Vorname">
-                <ticket-error [errorFormControl]="addEditUserForm.controls.firstname"></ticket-error>
-            </div>
-            <div class="form-group">
-                <label for="">Nachname</label>
-                <input type="text" name="lastname" required class="form-control" [(ngModel)]="user.lastname" placeholder="Nachname">
-                <ticket-error [errorFormControl]="addEditUserForm.controls.lastname"></ticket-error>
-            </div>
-            <div class="form-group">
-                <label for="">Alter</label>
-                <input type="number" name="age" ticketMin="18" ticketMax="50" required class="form-control" #age="ngModel" [(ngModel)]="user.age" placeholder="Alter">
-                <div class="alert-danger alert" *ngIf="age.invalid && age.touched">Pflichtfeld</div>
-                <div class="alert-danger alert" *ngIf="age.errors?.min">Mindestalter {{age.errors.min.min}}, ist aber {{age.errors.min.actual}}</div>
-                <div class="alert-danger alert" *ngIf="age.errors?.max">Maximales Alter {{age.errors.max.max}}, ist aber {{age.errors.max.actual}}</div>
-            </div>
-            <div class="form-group">
-                <label for="">E-Mail</label>
-                <input type="email" name="email" required class="form-control" [(ngModel)]="user.email" placeholder="E-Mail">
-                <ticket-error [errorFormControl]="addEditUserForm.controls.email"></ticket-error>
-            </div>
-            <div class="form-group">
-                <label for="">Passwort</label>
-                <input type="password" name="password" minlength="6" required class="form-control" [(ngModel)]="user.password" placeholder="Passwort">
-                <ticket-error [errorFormControl]="addEditUserForm.controls.password"></ticket-error>
-                <!--{{password.errors | json}}-->
-            </div>
-            <!--<div class="form-group">-->
-                <!--<label for="">Aktiv</label>-->
-                <!--<input type="checkbox" name="active" ticketRequireFalse=""  class="form-control" [(ngModel)]="user.active" #active="ngModel">-->
-                <!--{{active.valid | json}}-->
-            <!--</div>-->
-            <!--{{addEditUserForm.controls.firstname?.value}}-->
-            <!--{{addEditUserForm.valid}}-->
-            <button class="btn btn-primary" [disabled]="addEditUserForm.invalid" (click)="submit()">Speichern</button>
-        </form>
-    </div>
-    <div class="col-lg-3"></div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><span class="table-header">Benutzer</span>
+    <span class="table-header" *ngIf="user._id"> bearbeiten</span>
+    <span class="table-header" *ngIf="!user._id"> hinzufügen</span>
+  </div>
 </div>
+
+<div class="row" style="padding-top: 10px;">
+  <div class="col-lg-3">
+  </div>
+  <div class="col-lg-6">
+    <!--{{user | json}}-->
+    <form #addEditUserForm="ngForm">
+      <div class="form-group">
+        <label for="">Vorname</label>
+        <input type="text" name="firstname" required class="form-control" [(ngModel)]="user.firstname"
+               placeholder="Vorname">
+        <ticket-error [errorFormControl]="addEditUserForm.controls.firstname"></ticket-error>
+      </div>
+      <div class="form-group">
+        <label for="">Nachname</label>
+        <input type="text" name="lastname" required class="form-control" [(ngModel)]="user.lastname"
+               placeholder="Nachname">
+        <ticket-error [errorFormControl]="addEditUserForm.controls.lastname"></ticket-error>
+      </div>
+      <div class="form-group">
+        <label for="">Alter</label>
+        <input type="number" name="age" ticketMin="18" ticketMax="50" required class="form-control" #age="ngModel"
+               [(ngModel)]="user.age" placeholder="Alter">
+        <div class="alert-danger alert" *ngIf="age.invalid && age.touched">Pflichtfeld</div>
+        <div class="alert-danger alert" *ngIf="age.errors?.min">Mindestalter {{age.errors.min.min}}, ist aber
+          {{age.errors.min.actual}}
+        </div>
+        <div class="alert-danger alert" *ngIf="age.errors?.max">Maximales Alter {{age.errors.max.max}}, ist aber
+          {{age.errors.max.actual}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">E-Mail</label>
+        <input type="email" name="email" required class="form-control" [(ngModel)]="user.email" placeholder="E-Mail">
+        <ticket-error [errorFormControl]="addEditUserForm.controls.email"></ticket-error>
+      </div>
+      <div class="form-group">
+        <label for="">Passwort</label>
+        <input type="password" name="password" minlength="6" required class="form-control" [(ngModel)]="user.password"
+               placeholder="Passwort">
+        <ticket-error [errorFormControl]="addEditUserForm.controls.password"></ticket-error>
+        <!--{{password.errors | json}}-->
+      </div>
+      <!--<div class="form-group">-->
+      <!--<label for="">Aktiv</label>-->
+      <!--<input type="checkbox" name="active" ticketRequireFalse=""  class="form-control" [(ngModel)]="user.active" #active="ngModel">-->
+      <!--{{active.valid | json}}-->
+      <!--</div>-->
+      <!--{{addEditUserForm.controls.firstname?.value}}-->
+      <!--{{addEditUserForm.valid}}-->
+      <button class="btn btn-primary" [disabled]="addEditUserForm.invalid" (click)="submit()">Speichern</button>
+      <button class="btn btn-default" *ngIf="user._id" routerLink="/user/view/{{user._id}}">Abbrechen</button>
+      <button class="btn btn-default" *ngIf="!user._id" routerLink="/user">Abbrechen</button>
+    </form>
+  </div>
+  <div class="col-lg-3"></div>

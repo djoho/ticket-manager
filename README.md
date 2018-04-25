@@ -22,6 +22,23 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Backend
+
+Clone git repository (https://github.com/Schmitda/ticket-manager-backend.git)
+
+Run `npm install` to get libraries
+
+Run `npm install -g nodemon` to install the nodemon
+
+## Start backend database
+
+Run `mongod --dbpath=D:\ticket-manager` to start the database
+
+## Run backend
+
+Run `nodemon backend/server.js` to start the backend
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 
