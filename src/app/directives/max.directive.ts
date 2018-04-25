@@ -19,7 +19,6 @@ export class MaxDirective implements Validator {
     }
 
     validate(c: AbstractControl): ValidationErrors | null {
-        console.log(this.ticketMax)
         return Validators.max(this.ticketMax)(c);
     }
 }

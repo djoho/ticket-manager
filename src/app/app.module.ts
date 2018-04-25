@@ -19,6 +19,7 @@ import { UserOverviewComponent } from './pages/user/user-overview/user-overview.
 import { ViewUserComponent } from './pages/user/view-user/view-user.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {BoardMessageComponent} from './board-message/board-message.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {HttpClientModule} from '@angular/common/http';
         ViewTicketComponent,
         AddEditUserComponent,
         UserOverviewComponent,
-        ViewUserComponent
+        ViewUserComponent,
+        BoardMessageComponent
     ],
     imports: [
         BrowserModule,

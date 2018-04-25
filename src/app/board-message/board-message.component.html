@@ -1,0 +1,5 @@
+<div class="board-message-wrapper">
+  <div class="board-message {{msgObj.type}}" *ngFor="let msgObj of boardMessageService.messages">
+    {{msgObj.message}}
+  </div>
+</div>

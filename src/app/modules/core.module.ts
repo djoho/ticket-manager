@@ -3,6 +3,7 @@ import {UserService} from '../services/user.service';
 import {TicketService} from '../services/ticket.service';
 import {UserState} from '../services/user-state.service';
 import {AuthGuard} from '../services/auth-guard.service';
+import {BoardMessageService} from '../services/board-message.service';
 
 @NgModule({
     imports: [],
@@ -12,7 +13,8 @@ import {AuthGuard} from '../services/auth-guard.service';
         UserState,
         UserService,
         TicketService,
-        AuthGuard
+        AuthGuard,
+        BoardMessageService
     ]
 })
 export class CoreModule {

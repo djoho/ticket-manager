@@ -48,7 +48,7 @@ const routes: Routes = [
         component: AddEditUserComponent
     },
     {
-        path: 'user/view',
+        path: 'user/view/:id',
         component: ViewUserComponent
     },
     {

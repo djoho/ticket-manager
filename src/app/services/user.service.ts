@@ -22,10 +22,10 @@ export class UserService {
     }
 
     public update(user: UserInterface) {
-        return this.httpClient.put<UserInterface>('/api/user/' + user.id, user);
+        return this.httpClient.put<UserInterface>('/api/user/' + user._id, user);
     }
 
     public delete(user: UserInterface) {
-        return this.httpClient.delete<UserInterface>('/api/user/' + user.id);
+        return this.httpClient.delete<UserInterface>('/api/user/' + user._id);
     }
 }

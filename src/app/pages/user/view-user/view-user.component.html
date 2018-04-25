@@ -1,3 +1,34 @@
-<p>
-  view-user works!
-</p>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Benutzer {{user.firstname}} {{user.lastname}}</div>
+
+    <!-- Table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="label">Vorname</td>
+            <td>{{user.firstname}}</td>
+        </tr>
+        <tr>
+            <td class="label label-default">Nachname</td>
+            <td>{{user.lastname}}</td>
+        </tr>
+        <tr>
+            <td class="label label-default">Alter</td>
+            <td>{{user.age}}</td>
+        </tr>
+        <tr>
+            <td class="label label-primary">E-Mail</td>
+            <td>{{user.email}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn" routerLink="/user/edit/{{user._id}}">Bearbeiten</button>
+    <button class="btn btn-danger" (click)="delete(user)">Löschen</button>
+</div>

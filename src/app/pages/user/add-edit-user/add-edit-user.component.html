@@ -39,7 +39,7 @@
             <!--</div>-->
             <!--{{addEditUserForm.controls.firstname?.value}}-->
             <!--{{addEditUserForm.valid}}-->
-            <button class="btn btn-primary" [disabled]="addEditUserForm.invalid">Speichern</button>
+            <button class="btn btn-primary" [disabled]="addEditUserForm.invalid" (click)="submit()">Speichern</button>
         </form>
     </div>
     <div class="col-lg-3"></div>
