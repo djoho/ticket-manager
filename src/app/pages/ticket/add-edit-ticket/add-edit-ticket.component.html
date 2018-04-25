@@ -1,3 +1,14 @@
-<p>
-  add-edit-ticket works!
-</p>
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <form [formGroup]="ticketForm">
+            <div class="form-group">
+                <label for="">Titel</label>
+                <input type="text" formControlName="subject" class="form-control">
+            </div>
+        </form>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+<pre>{{ticketForm.value | json}}</pre>

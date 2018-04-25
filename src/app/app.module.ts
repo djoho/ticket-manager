@@ -17,7 +17,7 @@ import {ViewTicketComponent} from './pages/ticket/view-ticket/view-ticket.compon
 import { AddEditUserComponent } from './pages/user/add-edit-user/add-edit-user.component';
 import { UserOverviewComponent } from './pages/user/user-overview/user-overview.component';
 import { ViewUserComponent } from './pages/user/view-user/view-user.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BoardMessageComponent} from './board-message/board-message.component';
 
@@ -43,7 +43,8 @@ import {BoardMessageComponent} from './board-message/board-message.component';
         FormsModule,
         SharedModule,
         RouterModule.forRoot(routes),
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
