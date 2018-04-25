@@ -14,6 +14,10 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {LoginComponent} from './pages/login/login.component';
 import {AddEditTicketComponent} from './pages/ticket/add-edit-ticket/add-edit-ticket.component';
 import {ViewTicketComponent} from './pages/ticket/view-ticket/view-ticket.component';
+import { AddEditUserComponent } from './pages/user/add-edit-user/add-edit-user.component';
+import { UserOverviewComponent } from './pages/user/user-overview/user-overview.component';
+import { ViewUserComponent } from './pages/user/view-user/view-user.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -25,11 +29,15 @@ import {ViewTicketComponent} from './pages/ticket/view-ticket/view-ticket.compon
         DashboardComponent,
         LoginComponent,
         AddEditTicketComponent,
-        ViewTicketComponent
+        ViewTicketComponent,
+        AddEditUserComponent,
+        UserOverviewComponent,
+        ViewUserComponent
     ],
     imports: [
         BrowserModule,
         CoreModule,
+        FormsModule,
         SharedModule,
         RouterModule.forRoot(routes)
     ],

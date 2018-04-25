@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+        {{user | json}}
+        <form #addEditUserForm="ngForm">
+            <div class="form-group">
+                <label for="">Vorname</label>
+                <input type="text" name="firstname" required class="form-control" #firstname="ngModel" [(ngModel)]="user.firstname" placeholder="Vorname">
+                <div class="alert-danger alert" *ngIf="firstname.invalid && firstname.touched">Pflichtfeld</div>
+            </div>
+            <div class="form-group">
+                <label for="">Nachname</label>
+                <input type="text" name="lastname" required class="form-control" #lastname="ngModel" [(ngModel)]="user.lastname" placeholder="Nachname">
+                <div class="alert-danger alert" *ngIf="lastname.invalid && lastname.touched">Pflichtfeld</div>
+            </div>
+            <div class="form-group">
+                <label for="">Alter</label>
+                <input type="number" name="age" required class="form-control" #age="ngModel" [(ngModel)]="user.age" placeholder="Alter">
+                <div class="alert-danger alert" *ngIf="age.invalid && age.touched">Pflichtfeld</div>
+            </div>
+            <div class="form-group">
+                <label for="">E-Mail</label>
+                <input type="email" name="email" required class="form-control" #email="ngModel" [(ngModel)]="user.email" placeholder="E-Mail">
+                <div class="alert-danger alert" *ngIf="email.invalid && email.touched">Pflichtfeld</div>
+            </div>
+            <div class="form-group">
+                <label for="">Passwort</label>
+                <input type="password" name="password" required class="form-control" #password="ngModel" [(ngModel)]="user.password" placeholder="Passwort">
+                <div class="alert-danger alert" *ngIf="password.invalid && password.touched">Pflichtfeld</div>
+            </div>
+            <div class="form-group">
+                <label for="">Aktiv</label>
+                <input type="checkbox" name="active" ticketRequireFalse=""  class="form-control" [(ngModel)]="user.active" #active="ngModel">
+                {{active.valid | json}}
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
