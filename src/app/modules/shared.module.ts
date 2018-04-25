@@ -1,13 +1,19 @@
 import {NgModule} from '@angular/core';
 import {RequireFalseDirective} from '../directives/require-false.directive';
+import {MaxDirective} from '../directives/max.directive';
+import {MinDirective} from '../directives/min.directive';
 
 @NgModule({
     imports: [],
     exports: [
-        RequireFalseDirective
+        RequireFalseDirective,
+        MaxDirective,
+        MinDirective
     ],
     declarations: [
-        RequireFalseDirective
+        RequireFalseDirective,
+        MaxDirective,
+        MinDirective
     ],
     providers: [],
 })

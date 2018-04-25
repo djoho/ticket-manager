@@ -2,7 +2,7 @@
     <div class="col-lg-3">
     </div>
     <div class="col-lg-6">
-        {{user | json}}
+        <!--{{user | json}}-->
         <form #addEditUserForm="ngForm">
             <div class="form-group">
                 <label for="">Vorname</label>
@@ -16,8 +16,11 @@
             </div>
             <div class="form-group">
                 <label for="">Alter</label>
-                <input type="number" name="age" required class="form-control" #age="ngModel" [(ngModel)]="user.age" placeholder="Alter">
+                <input type="number" name="age" ticketMin="18" ticketMax="50" required class="form-control" #age="ngModel" [(ngModel)]="user.age" placeholder="Alter">
                 <div class="alert-danger alert" *ngIf="age.invalid && age.touched">Pflichtfeld</div>
+                {{age.errors | json}}
+                <div class="alert-danger alert" *ngIf="age.errors?.min">Mindestalter {{age.errors.min.min}}, ist aber {{age.errors.min.actual}}</div>
+                <div class="alert-danger alert" *ngIf="age.errors?.max">Maximales Alter {{age.errors.max.max}}, ist aber {{age.errors.max.actual}}</div>
             </div>
             <div class="form-group">
                 <label for="">E-Mail</label>
@@ -26,14 +29,18 @@
             </div>
             <div class="form-group">
                 <label for="">Passwort</label>
-                <input type="password" name="password" required class="form-control" #password="ngModel" [(ngModel)]="user.password" placeholder="Passwort">
+                <input type="password" name="password" minlength="6" required class="form-control" #password="ngModel" [(ngModel)]="user.password" placeholder="Passwort">
                 <div class="alert-danger alert" *ngIf="password.invalid && password.touched">Pflichtfeld</div>
+                <div class="alert-danger alert" *ngIf="password.errors?.minlength">Mind. 6 Zeichen</div>
             </div>
-            <div class="form-group">
-                <label for="">Aktiv</label>
-                <input type="checkbox" name="active" ticketRequireFalse=""  class="form-control" [(ngModel)]="user.active" #active="ngModel">
-                {{active.valid | json}}
-            </div>
+            <!--<div class="form-group">-->
+                <!--<label for="">Aktiv</label>-->
+                <!--<input type="checkbox" name="active" ticketRequireFalse=""  class="form-control" [(ngModel)]="user.active" #active="ngModel">-->
+                <!--{{active.valid | json}}-->
+            <!--</div>-->
+            <!--{{addEditUserForm.controls.firstname?.value}}-->
+            <!--{{addEditUserForm.valid}}-->
+            <button class="btn btn-primary" [disabled]="addEditUserForm.invalid">Speichern</button>
         </form>
     </div>
     <div class="col-lg-3"></div>
