@@ -33,6 +33,7 @@ export class AddEditUserComponent implements OnInit {
         this.route.params.subscribe((val) => {
             if (val['id']) {
                 this.userService.getUser(val['id']).subscribe((user) => {
+                    this.user = user;
                 });
             }
         });
