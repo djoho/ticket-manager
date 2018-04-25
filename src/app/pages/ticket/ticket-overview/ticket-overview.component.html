@@ -1,3 +1,32 @@
-<p>
-  ticket-overview works!
-</p>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><span class="table-header">Tickets</span>
+    <button class="btn btn-primary btn-table" type="button" routerLink="/add">Hinzufügen</button>
+  </div>
+</div>
+
+<!-- Table -->
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Titel</th>
+    <th>Text</th>
+    <th>Dringend</th>
+    <th>Typ</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ticket of tickets">
+    <td>{{ticket.subject}}</td>
+    <td>{{ticket.body}}</td>
+    <td>{{ticket.urgent}}</td>
+    <td>{{ticket.type}}</td>
+    <td style="text-align: right">
+      <button class="btn btn-sm btn-default" routerLink="/view/{{ticket._id}}">Ansehen</button>
+      <button class="btn btn-sm btn-default" routerLink="/edit/{{ticket._id}}">Bearbeiten</button>
+      <button class="btn btn-sm btn-danger" (click)="delete(ticket)">Löschen</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -17,19 +17,6 @@ export class AddEditUserComponent implements OnInit {
                 private boardMessageService: BoardMessageService) {
     }
 
-    public submit() {
-        if (this.user._id) {
-            this.userService.update(this.user).subscribe((user) => {
-                this.boardMessageService.addMessage('Benutzer ' + this.user.firstname + ' ' + this.user.lastname + ' wurde erfolgreich geändert');
-            });
-        } else {
-            this.userService.save(this.user).subscribe((user) => {
-                this.boardMessageService.addMessage('Benutzer ' + this.user.firstname + ' ' + this.user.lastname + ' wurde erfolgreich erstellt');
-                this.user = user;
-            });
-        }
-    }
-
     ngOnInit() {
         this.route.params.subscribe((val) => {
             if (val['id']) {
@@ -39,4 +26,17 @@ export class AddEditUserComponent implements OnInit {
             }
         });
     }
+
+  public submit() {
+    if (this.user._id) {
+      this.userService.update(this.user).subscribe((user) => {
+        this.boardMessageService.addMessage('Benutzer ' + this.user.firstname + ' ' + this.user.lastname + ' wurde erfolgreich geändert');
+      });
+    } else {
+      this.userService.save(this.user).subscribe((user) => {
+        this.boardMessageService.addMessage('Benutzer ' + this.user.firstname + ' ' + this.user.lastname + ' wurde erfolgreich erstellt');
+        this.user = user;
+      });
+    }
+  }
 }

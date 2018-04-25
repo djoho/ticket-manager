@@ -34,5 +34,4 @@ export class ViewUserComponent implements OnInit {
             this.router.navigateByUrl('/user');
         });
     }
-
 }

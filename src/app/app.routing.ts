@@ -32,7 +32,7 @@ const routes: Routes = [
         component: AddEditTicketComponent
     },
     {
-        path: 'view',
+        path: 'view/:id',
         component: ViewTicketComponent
     },
     {
