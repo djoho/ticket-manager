@@ -17,19 +17,23 @@
     </div>
     <div class="form-group">
       <label>Text</label>
-      <div>{{ticket.body}}</div>
+      <div [innerHTML]="ticket.body | break"></div>
     </div>
     <div class="form-group">
       <label>Dringend</label>
-      <div>{{ticket.urgent}}</div>
+      <div><span class="cr"><i class="{{ticket.urgent ? 'cr-icon glyphicon glyphicon-ok' : ''}}"></i></span></div>
     </div>
     <div class="form-group">
       <label>Typ</label>
       <div>{{ticket.type}}</div>
-    </div>‡
+    </div>
     <div class="form-group">
       <label>Erstellt am</label>
       <div>{{ticket.created | date: "dd.MM.yyyy HH:mm:ss"}}</div>
+    </div>
+    <div class="form-group">
+      <label>Benutzer</label>
+      <div>{{ticket.owner?.firstname}} {{ticket.owner?.lastname}}</div>
     </div>
   </div>
   <div class="col-lg-3"></div>

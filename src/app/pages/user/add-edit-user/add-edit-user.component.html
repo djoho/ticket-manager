@@ -10,7 +10,7 @@
   <div class="col-lg-3"></div>
   <div class="col-lg-6">
     <!--{{user | json}}-->
-    <form #addEditUserForm="ngForm">
+    <form #addEditUserForm="ngForm" (submit)="submit()">
       <div class="form-group">
         <label for="">Vorname</label>
         <input type="text" name="firstname" required class="form-control" [(ngModel)]="user.firstname"
@@ -54,9 +54,9 @@
       <!--</div>-->
       <!--{{addEditUserForm.controls.firstname?.value}}-->
       <!--{{addEditUserForm.valid}}-->
-      <button class="btn btn-primary" [disabled]="addEditUserForm.invalid" (click)="submit()">Speichern</button>
-      <button class="btn btn-default" *ngIf="user._id" routerLink="/user/view/{{user._id}}">Abbrechen</button>
-      <button class="btn btn-default" *ngIf="!user._id" routerLink="/user">Abbrechen</button>
+      <button class="btn btn-primary" [disabled]="addEditUserForm.invalid">Speichern</button>
+      <button class="btn btn-default" type="button" *ngIf="user._id" routerLink="/user/view/{{user._id}}">Abbrechen</button>
+      <button class="btn btn-default" type="button" *ngIf="!user._id" routerLink="/user">Abbrechen</button>
     </form>
   </div>
   <div class="col-lg-3"></div>

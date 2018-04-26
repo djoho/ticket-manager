@@ -1,47 +1,53 @@
 <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><span class="table-header">Ticket</span>
-    <span class="table-header" *ngIf="ticket._id"> bearbeiten</span>
-    <span class="table-header" *ngIf="!ticket._id"> hinzufügen</span>
-  </div>
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="table-header">Ticket</span>
+        <span class="table-header"> {{ticketForm.value._id ? 'bearbeiten' : 'hinzufügen'}} </span>
+    </div>
 </div>
 
 <div class="row" style="padding-top: 10px;">
-  <div class="col-lg-3"></div>
-  <div class="col-lg-6">
-    <form [formGroup]="ticketForm">
-      <div class="form-group">
-        <label for="">Titel</label>
-        <input type="text" formControlName="subject" class="form-control" [(ngModel)]="ticket.subject"
-               placeholder="Titel">
-        <ticket-error [errorFormControl]="ticketForm.controls.subject"></ticket-error>
-      </div>
-      <div class="form-group">
-        <label for="">Text</label>
-        <textarea formControlName="body" class="form-control" [(ngModel)]="ticket.body" rows="10"
-                  placeholder="Text ..."></textarea>
-        <ticket-error [errorFormControl]="ticketForm.controls.body"></ticket-error>
-      </div>
-      <div class="form-group">
-        <label for="">Dringend</label>
-        <input type="checkbox" formControlName="urgent" class="form-control" [(ngModel)]="ticket.urgent">
-        <ticket-error [errorFormControl]="ticketForm.controls.urgent"></ticket-error>
-      </div>
-      <div class="form-group">
-        <label for="">Typ</label>
-        <select formControlName="type" class="form-control" [(ngModel)]="ticket.type">
-          <option disabled>Auswählen ...</option>
-          <option [selected]="ticket.type == 'Software'">Software</option>
-          <option [selected]="ticket.type == 'Hardware'">Hardware</option>
-          <option [selected]="ticket.type == 'Unbekannt'">Unbekannt</option>
-        </select>
-        <ticket-error [errorFormControl]="ticketForm.controls.type"></ticket-error>
-      </div>
-      <button class="btn btn-primary" type="button" [disabled]="ticketForm.invalid" (click)="submit()">Speichern
-      </button>
-      <button class="btn btn-default" *ngIf="ticket._id" routerLink="/view/{{ticket._id}}">Abbrechen</button>
-      <button class="btn btn-default" *ngIf="!ticket._id" routerLink="/home">Abbrechen</button>
-    </form>
     <div class="col-lg-3"></div>
-  </div>
+    <div class="col-lg-6">
+        <form [formGroup]="ticketForm" (submit)="submit()">
+            <div class="form-group">
+                <label for="">Titel</label>
+                <input type="text" formControlName="subject" class="form-control" placeholder="Titel">
+                <ticket-error [errorFormControl]="ticketForm.controls.subject"></ticket-error>
+                <div class="alert alert-danger" *ngIf="ticketForm.get('subject').errors?.ticketExists">
+                    {{ticketForm.get('subject').errors.ticketExists.message}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Text</label>
+                <textarea formControlName="body" class="form-control" rows="10"
+                          placeholder="Text ..."></textarea>
+                <ticket-error [errorFormControl]="ticketForm.controls.body"></ticket-error>
+            </div>
+            <div class="form-group">
+                <label for="">Dringend</label>
+                <input type="checkbox" formControlName="urgent" class="form-control">
+                <ticket-error [errorFormControl]="ticketForm.controls.urgent"></ticket-error>
+            </div>
+            <div class="form-group">
+                <label for="">Typ</label>
+                <select formControlName="type" class="form-control">
+                    <option disabled>Auswählen ...</option>
+                    <option [value]="'Software'">Software</option>
+                    <option [value]="'Hardware'">Hardware</option>
+                    <option [value]="'Unbekannt'">Unbekannt</option>
+                </select>
+                <ticket-error [errorFormControl]="ticketForm.controls.type"></ticket-error>
+            </div>
+            <div class="form-group">
+                <label for="">Owner</label>
+                <select formControlName="owner" class="form-control">
+                    <option *ngFor="let user of users" [value]="user">{{user.firstname}} {{user.lastname}}</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" [disabled]="ticketForm.invalid">Speichern</button>
+            <button class="btn btn-default" type="button" *ngIf="ticketForm.value._id" routerLink="/view/{{ticketForm.value._id}}">Abbrechen</button>
+            <button class="btn btn-default" type="button" *ngIf="!ticketForm.value._id" routerLink="/home">Abbrechen</button>
+        </form>
+        <div class="col-lg-3"></div>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserInterface} from '../../../interfaces/user.interface';
 import {UserService} from '../../../services/user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BoardMessageService} from '../../../services/board-message.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class AddEditUserComponent implements OnInit {
 
     constructor(private userService: UserService,
                 private route: ActivatedRoute,
+                private router: Router,
                 private boardMessageService: BoardMessageService) {
     }
 
@@ -30,12 +31,13 @@ export class AddEditUserComponent implements OnInit {
   public submit() {
     if (this.user._id) {
       this.userService.update(this.user).subscribe((user) => {
-        this.boardMessageService.addMessage('Benutzer ' + this.user.firstname + ' ' + this.user.lastname + ' wurde erfolgreich geändert');
+        this.boardMessageService.addMessage('Benutzer ' + user.firstname + ' ' + user.lastname + ' wurde erfolgreich geändert');
+        this.router.navigateByUrl('/user/view/' + user._id);
       });
     } else {
       this.userService.save(this.user).subscribe((user) => {
-        this.boardMessageService.addMessage('Benutzer ' + this.user.firstname + ' ' + this.user.lastname + ' wurde erfolgreich erstellt');
-        this.user = user;
+        this.boardMessageService.addMessage('Benutzer ' + user.firstname + ' ' + user.lastname + ' wurde erfolgreich erstellt');
+        this.router.navigateByUrl('/user/view/' + user._id);
       });
     }
   }
