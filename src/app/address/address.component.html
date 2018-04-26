@@ -1,0 +1,24 @@
+<form [formGroup]="userForm">
+    <div class="form-group">
+        <label for="">Vorname</label>
+        <input type="text" formControlName="firstname">
+    </div>
+    <div class="form-group">
+        <label for="">Nachname</label>
+        <input type="text" formControlName="lastname">
+    </div>
+
+    <div formArrayName="address" *ngFor="let formGroup of userForm.get('address')['controls']; let i = index">
+        <div class="form-group" formGroupName="{{i}}">
+            <label for="">Strasse</label>
+            <input type="text" formControlName="street">
+        </div>
+        <div class="form-group" formGroupName="{{i}}">
+            <label for="">Nr.</label>
+            <input type="text" formControlName="streetNr">
+        </div>
+        <button class="btn btn-danger" (click)="removeAddressFromForm(i)">Adresse entfernen</button>
+    </div>
+
+    <button class="btn btn-primary" (click)="addAddressToForm()">Adresse hinzufügen</button>
+</form>
