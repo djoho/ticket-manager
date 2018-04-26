@@ -5,16 +5,20 @@ import {MinDirective} from '../directives/min.directive';
 import {ErrorComponent} from '../components/error/error.component';
 import {CommonModule} from '@angular/common';
 import {BreakPipe} from '../pipes/break.pipe';
+import {SearchTicketComponent} from '../components/search-ticket/search-ticket.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
     ],
     exports: [
         RequireFalseDirective,
         MaxDirective,
         MinDirective,
         ErrorComponent,
+        SearchTicketComponent,
         BreakPipe
     ],
     declarations: [
@@ -22,6 +26,7 @@ import {BreakPipe} from '../pipes/break.pipe';
         MaxDirective,
         MinDirective,
         ErrorComponent,
+        SearchTicketComponent,
         BreakPipe
     ],
     providers: [],

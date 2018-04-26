@@ -14,12 +14,13 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {LoginComponent} from './pages/login/login.component';
 import {AddEditTicketComponent} from './pages/ticket/add-edit-ticket/add-edit-ticket.component';
 import {ViewTicketComponent} from './pages/ticket/view-ticket/view-ticket.component';
-import { AddEditUserComponent } from './pages/user/add-edit-user/add-edit-user.component';
-import { UserOverviewComponent } from './pages/user/user-overview/user-overview.component';
-import { ViewUserComponent } from './pages/user/view-user/view-user.component';
+import {AddEditUserComponent} from './pages/user/add-edit-user/add-edit-user.component';
+import {UserOverviewComponent} from './pages/user/user-overview/user-overview.component';
+import {ViewUserComponent} from './pages/user/view-user/view-user.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BoardMessageComponent} from './board-message/board-message.component';
+import {AddressComponent} from './address/address.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {BoardMessageComponent} from './board-message/board-message.component';
         AddEditUserComponent,
         UserOverviewComponent,
         ViewUserComponent,
-        BoardMessageComponent
+        BoardMessageComponent,
+        AddressComponent
     ],
     imports: [
         BrowserModule,

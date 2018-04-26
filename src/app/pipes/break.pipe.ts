@@ -6,7 +6,6 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class BreakPipe implements PipeTransform {
 
     transform(value: any, args?: any): any {
-        console.log(value);
         if (typeof value === 'string') {
             return value.replace(/\n/g, '<br>');
         } else {

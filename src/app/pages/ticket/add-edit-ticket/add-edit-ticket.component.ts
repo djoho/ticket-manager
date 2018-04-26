@@ -27,7 +27,7 @@ export class AddEditTicketComponent implements OnInit {
 
     ngOnInit() {
         this.ticketForm = this.fb.group({
-            _id: [false],
+            _id: [],
             subject: [null, Validators.required, checkDoesTicketExist(this.ticketService)],
             body: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
             urgent: [false],

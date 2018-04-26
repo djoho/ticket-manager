@@ -31,4 +31,8 @@ export class TicketService {
     public checkUnique(subjectToCheck: string) {
         return this.httpClient.post('/api/ticket/nameTaken', {toCheck: subjectToCheck});
     }
+
+    public search(searchTerm: string) {
+        return this.httpClient.get<TicketInterface[]>('/api/ticket/search/' + searchTerm);
+    }
 }

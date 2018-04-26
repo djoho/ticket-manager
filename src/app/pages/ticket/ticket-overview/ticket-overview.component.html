@@ -1,6 +1,7 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading"><span class="table-header">Tickets</span>
+    <ticket-search-ticket (ticketChanged)="tickets = $event"></ticket-search-ticket>
     <button class="btn btn-primary btn-table" type="button" routerLink="/add">Hinzufügen</button>
   </div>
 </div>
