@@ -16,7 +16,8 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: TicketOverviewComponent
+        component: TicketOverviewComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'login',
@@ -29,27 +30,33 @@ const routes: Routes = [
     },
     {
         path: 'edit/:id',
-        component: AddEditTicketComponent
+        component: AddEditTicketComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'view/:id',
-        component: ViewTicketComponent
+        component: ViewTicketComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'user',
-        component: UserOverviewComponent
+        component: UserOverviewComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'user/add',
-        component: AddEditUserComponent
+        component: AddEditUserComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'user/edit/:id',
-        component: AddEditUserComponent
+        component: AddEditUserComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'user/view/:id',
-        component: ViewUserComponent
+        component: ViewUserComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: '**',
