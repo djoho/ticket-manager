@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+        <form [formGroup]="loginForm" (submit)="submit()">
+            <div class="form-group">
+                <label for="">E-Mail</label>
+                <input type="email" class="form-control" placeholder="E-Mail" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="">Passwort</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+    </div>
+</div>
