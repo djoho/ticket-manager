@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label for="">Owner</label>
                 <select formControlName="owner" class="form-control">
-                    <option *ngFor="let user of users" [value]="user._id">{{user.firstname}} {{user.lastname}}</option>
+                    <option *ngFor="let user of users" [ngValue]="user">{{user.firstname}} {{user.lastname}}</option>
                 </select>
             </div>
             <button class="btn btn-primary" [disabled]="ticketForm.invalid">Speichern</button>

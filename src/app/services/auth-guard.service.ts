@@ -19,13 +19,13 @@ export class AuthGuard implements CanActivate {
             return new Promise((resolve, reject) => { // Asynchrone Antwort
                 this.userService.checkToken(localStorage.getItem('token')).subscribe(val => {
                     if (this.userState.isLoggedIn === false) {
-                        this.router.navigateByUrl('login');
+                        this.router.navigateByUrl('/login');
                     }
                     resolve(this.userState.isLoggedIn);
                 });
             });
         } else {
-            this.router.navigateByUrl('login');
+            this.router.navigateByUrl('/login');
             return false;
         }
     }

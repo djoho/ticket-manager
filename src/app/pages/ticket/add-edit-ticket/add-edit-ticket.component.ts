@@ -27,7 +27,6 @@ export class AddEditTicketComponent implements OnInit {
 
     ngOnInit() {
         this.ticketForm = this.fb.group({
-            _id: [],
             subject: [null, Validators.required, checkDoesTicketExist(this.ticketService)],
             body: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
             urgent: [false],
@@ -55,16 +54,16 @@ export class AddEditTicketComponent implements OnInit {
     }
 
     public submit() {
+        // this.ticketForm.value.owner = this.ticketForm.value.owner._id;
         if (this.ticketForm.value._id) {
             this.ticketService.update(this.ticketForm.value).subscribe((ticket) => {
                 this.boardMessageService.addMessage('Ticket ' + ticket.subject + ' wurde erfolgreich geändert');
-                this.router.navigateByUrl('/view/' + ticket._id);
+                this.router.navigateByUrl('/ticket/view/' + ticket._id);
             });
         } else {
             this.ticketService.save(this.ticketForm.value).subscribe((ticket) => {
-                // this.ticketForm.patchValue(ticket);
                 this.boardMessageService.addMessage('Ticket ' + ticket.subject + ' wurde erfolgreich erstellt');
-                this.router.navigateByUrl('/view/' + ticket._id);
+                this.router.navigateByUrl('/ticket/view/' + ticket._id);
             });
         }
     }

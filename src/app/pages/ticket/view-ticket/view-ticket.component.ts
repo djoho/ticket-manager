@@ -33,7 +33,7 @@ export class ViewTicketComponent implements OnInit {
     public delete(ticket: TicketInterface) {
         this.ticketService.delete(ticket).subscribe(() => {
             this.boardMessageService.addMessage('Ticket ' + this.ticket.subject + ' wurde erfolgreich gelöscht');
-            this.router.navigateByUrl('/home');
+            this.router.navigateByUrl('/ticket');
         });
     }
 

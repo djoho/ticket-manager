@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
     private checkLoggedIn() {
         if (this.userState.isLoggedIn) {
-            this.router.navigateByUrl('/home');
+            this.router.navigateByUrl('/ticket');
         } else {
             localStorage.removeItem('token');
             this.boardMessageService.addMessage('E-Mail oder Passwort ungültig', 'error', 5000);
