@@ -2,7 +2,7 @@
   <!-- Default panel contents -->
   <div class="panel-heading"><span class="table-header">Ticket {{ticket.subject}}</span>
     <span class="btn-table">
-      <button class="btn btn-primary" routerLink="/edit/{{ticket._id}}">Bearbeiten</button>
+      <button class="btn btn-primary" routerLink="/ticket/edit/{{ticket._id}}">Bearbeiten</button>
       <button class="btn btn-danger" (click)="delete(ticket)">Löschen</button>
       </span>
   </div>

@@ -2,7 +2,7 @@
   <!-- Default panel contents -->
   <div class="panel-heading"><span class="table-header">Tickets</span>
     <ticket-search-ticket (ticketChanged)="tickets = $event"></ticket-search-ticket>
-    <button class="btn btn-primary btn-table" type="button" routerLink="/add">Hinzufügen</button>
+    <button class="btn btn-primary btn-table" type="button" routerLink="/ticket/add">Hinzufügen</button>
   </div>
 </div>
 
@@ -28,8 +28,8 @@
     <td>{{ticket.created | date: "dd.MM.yyyy HH:mm:ss"}}</td>
     <td>{{ticket.owner?.firstname}} {{ticket.owner?.lastname}}</td>
     <td style="text-align: right">
-      <button class="btn btn-sm btn-default" routerLink="/view/{{ticket._id}}">Ansehen</button>
-      <button class="btn btn-sm btn-default" routerLink="/edit/{{ticket._id}}">Bearbeiten</button>
+      <button class="btn btn-sm btn-default" routerLink="/ticket/view/{{ticket._id}}">Ansehen</button>
+      <button class="btn btn-sm btn-default" routerLink="/ticket/edit/{{ticket._id}}">Bearbeiten</button>
       <button class="btn btn-sm btn-danger" (click)="delete(ticket)">Löschen</button>
     </td>
   </tr>

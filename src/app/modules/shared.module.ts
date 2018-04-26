@@ -6,14 +6,21 @@ import {ErrorComponent} from '../components/error/error.component';
 import {CommonModule} from '@angular/common';
 import {BreakPipe} from '../pipes/break.pipe';
 import {SearchTicketComponent} from '../components/search-ticket/search-ticket.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     imports: [
         CommonModule,
-        ReactiveFormsModule
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     exports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
         RequireFalseDirective,
         MaxDirective,
         MinDirective,

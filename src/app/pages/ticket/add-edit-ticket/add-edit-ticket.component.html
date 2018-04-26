@@ -45,8 +45,8 @@
                 </select>
             </div>
             <button class="btn btn-primary" [disabled]="ticketForm.invalid">Speichern</button>
-            <button class="btn btn-default" type="button" *ngIf="ticketForm.value._id" routerLink="/view/{{ticketForm.value._id}}">Abbrechen</button>
-            <button class="btn btn-default" type="button" *ngIf="!ticketForm.value._id" routerLink="/home">Abbrechen</button>
+            <button class="btn btn-default" type="button" *ngIf="ticketForm.value._id" routerLink="/ticket/view/{{ticketForm.value._id}}">Abbrechen</button>
+            <button class="btn btn-default" type="button" *ngIf="!ticketForm.value._id" routerLink="/ticket">Abbrechen</button>
         </form>
         <div class="col-lg-3"></div>
     </div>
